@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cissst.software.model">
+
+	<class name="Person" table="person">
+		<!-- 设定主键 -->
+		<id name="pid">
+			<!-- 自增 -->
+			<generator class="native">
+			</generator>
+		</id>
+
+		<property name="name" column="name" length="20"></property>
+		<property name="loginName" column="loginname" unique="true"></property>
+		<property name="age" type="int"></property>
+		<property name="gender" length="2"></property>
+		<property name="authority" length="20"></property>
+		<property name="pwd" length="20"></property>
+
+
+		 <set name="personProjects" inverse="true"  cascade="all">
+			<key column="pid"></key>
+			<one-to-many class="PersonProject"/>
+		</set> 
+		
+		<set name="projects" inverse="true" cascade="all">
+		   <key column="pid"></key>
+		   <one-to-many class="Project"/>
+		</set>
+		
+		<set name="tasks" inverse="true" cascade="all">
+		   <key column="pid"/>
+		   <one-to-many class="Task"/>
+		 </set>
+	</class>
+</hibernate-mapping>

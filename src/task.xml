@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+		<struts>
+		 <package name="task" namespace="/task" extends="default">
+		   <!-- 使用通配符调用action中的方法 -->
+		    <action name="displayTask_*" class="com.cissst.software.action.TaskAction" method="{1}">
+		    </action>
+		 </package>
+		</struts>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping package="com.cissst.software.model" >
+    
+	<class name="PersonProject" table="personproject">
+	    <!-- 设定主键 -->
+		<id name="id" column="ppid" type="int"> 
+		    <!-- 自增 -->		  
+			<generator class="native">			
+			</generator>
+		</id>
+		<property name="remark" length="1000"></property>
+		<many-to-one name="project" column="proid" class="Project"></many-to-one>
+	  	<many-to-one name="person" column="pid" class="Person"></many-to-one>
+	</class>
+</hibernate-mapping>

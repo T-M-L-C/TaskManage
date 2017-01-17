@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="com.cissst.software.model">
+	    <class name="Task"  table="task">
+	         <id name="taskid">
+	             <generator class="native"></generator>
+	         </id>
+	         <property name="taskname" length="100"/>
+	         <property name="tasktype" length="20"/>
+	         <property name="taskstatus" length="20"/>
+	         <property name="begintime" />
+	         <property name="endtime"/>
+	         <property name="praticaltime"/>
+	         <many-to-one name="person" column="pid" lazy="false"/>
+	         <many-to-one name="project" column="proid" lazy="false"/>
+	    </class>
+	</hibernate-mapping>

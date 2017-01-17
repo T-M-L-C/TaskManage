@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="TaskManage">
+    <output-path>$PROJECT_DIR$/classes/artifacts/TaskManage</output-path>
+    <root id="root" />
+  </artifact>
+</component>

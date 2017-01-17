@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+   
+    <package name="person" namespace="/person" extends="default">
+    	<!-- 查询员工表中的所有信息 -->
+    	<action name="displayperson_*"  
+    	    class="com.cissst.software.action.PersonAction" method="{1}">
+    	     <result name="success">
+    	       /main.jsp
+    	     </result>
+    	</action>
+    </package>
+    <!-- 把请求跟视图分开 分析和设计过程-->
+</struts>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping package="com.cissst.software.model">
+    
+	<class name="Project" table="project">
+	    <!-- 设定主键 -->
+		<id name="projectId" type="int" column="proid"> 
+		    <!-- 自增 -->		  
+			<generator class="native">			
+			</generator>
+		</id>
+		
+	    <property name="projectName" column="projectname" length="100"/>
+        <property name="projectCode" column="projectcode" length="20"/>
+	    <property name="status"  length="20"/>
+	    <property name="beginTime" column="begintime" />
+	    <property name="endTime" column="endtime" ></property>
+	    
+		<!-- 外键映射 -->
+	   <many-to-one name="person" column="pid" class="Person"></many-to-one>
+	   	
+	   <set name="projects" inverse="true" cascade="all">
+	   		<key column="proid"></key>
+	   		<one-to-many class="PersonProject"/>
+	   	</set> 
+	   	<set name="tasks" inverse="true" cascade="all">
+	   	   <key column="proid"/>
+	   	   <one-to-many class="Task"/>
+	   	</set>
+	</class>
+</hibernate-mapping>
